@@ -11,28 +11,28 @@ h1 { font-size:35px; text-align: center; margin: 0; padding-bottom: 25px; text-d
 <script type="text/javascript">
 function play_game()
 {
-var level = 160; // Game level, by decreasing will speed up
-var rect_w = 45; // Width
-var rect_h = 30; // Height
-var inc_score = 50; // Score
-var snake_color = "#0520A5"; // Snake Color
-var ctx; // Canvas attributes
-var tn = []; // temp directions storage
-var x_dir = [-1, 0, 1, 0]; // position adjusments
-var y_dir = [0, -1, 0, 1]; // position adjusments
-var queue = [];
-var frog = 1; // defalut food
-var map = [];
-var MR = Math.random;
-var X = 5 + (MR() * (rect_w - 10))|0; // Calculate positions
-var Y = 5 + (MR() * (rect_h - 10))|0; // Calculate positions
-var direction = MR() * 3 | 0;
-var interval = 0;
-var score = 0;
-var sum = 0, easy = 0;
-var i, dir;
+let level = 160; // Game level, by decreasing will speed up
+let rect_w = 45; // Width
+let rect_h = 30; // Height
+let inc_score = 50; // Score
+let snake_color = "#0520A5"; // Snake Color
+let ctx; // Canvas attributes
+let tn = []; // temp directions storage
+let x_dir = [-1, 0, 1, 0]; // position adjusments
+let y_dir = [0, -1, 0, 1]; // position adjusments
+let queue = [];
+let frog = 1; // defalut food
+let map = [];
+let MR = Math.random;
+let X = 5 + (MR() * (rect_w - 10))|0; // Calculate positions
+let Y = 5 + (MR() * (rect_h - 10))|0; // Calculate positions
+let direction = MR() * 3 | 0;
+let interval = 0;
+let score = 0;
+let sum = 0, easy = 0;
+let i, dir;
 // getting play area 
-var c = document.getElementById('playArea');
+let c = document.getElementById('playArea');
 ctx = c.getContext('2d');
 // Map positions
 for (i = 0; i < rect_w; i++)
@@ -42,7 +42,7 @@ map[i] = [];
 // random placement of snake food
 function random_snake()
 {
-var x, y;
+let x, y;
 do
 {
 x = MR() * rect_w|0;
@@ -95,7 +95,7 @@ ctx.clearRect(dir[0] * 10, dir[1] * 10, 10, 10);
 }
 else if (!tn.length)
 {
-var show_score = document.getElementById("show");
+let show_score = document.getElementById("show");
 show_score.innerHTML = "You lose!<br /> <u>Your Score:</u> <b>"+score+"</b><br><br> Want to try again?<br><br><input type='button' value='Play Again' onclick='window.location.reload();' />";
 document.getElementById("playArea").style.display = 'none';
 window.clearInterval(interval);
@@ -103,7 +103,7 @@ window.clearInterval(interval);
 }
 interval = window.setInterval(set_game_speed, level);
 document.onkeydown = function(e) {
-var code = e.keyCode - 37;
+let code = e.keyCode - 37;
 if (0 <= code && code < 4 && code !== tn[0])
 {
 tn.unshift(code);
